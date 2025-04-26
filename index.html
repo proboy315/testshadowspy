@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShadowSpy Tools - Login or Signup to access cutting-edge tools.">
+    <title>ShadowSpy Tools - Login / Signup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: #00ffcc;
+            text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+            animation: neon-flicker 3s infinite;
+        }
+
+        @keyframes neon-flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
+        }
+
+        .container {
+            background: rgba(20, 20, 20, 0.85);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0, 255, 204, 0.4);
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(8px);
+            animation: slide-in 0.5s ease;
+        }
+
+        @keyframes slide-in {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h2 {
+            color: #00ffcc;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #00ffcc;
+            border-radius: 6px;
+            background: #1c1c1c;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00cc99;
+            box-shadow: 0 0 12px #00ffcc;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00ffcc, #00cc99);
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px #00ffcc;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00ffcc;
+            color: #00ffcc;
+            margin-top: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: #00ffcc;
+            color: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        .message {
+            padding: 0.8rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.95rem;
+            animation: fade-in 0.4s ease;
+        }
+
+        .error {
+            background: #ff4d4d;
+            color: #fff;
+        }
+
+        .success {
+            background: #00ffcc;
+            color: #1a1a1a;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .footer .developer {
+            font-size: 1.2rem;
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ffcc, #00cc99);
+            color: #1a1a1a;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 10px #00ffcc;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px #00ffcc;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 { font-size: 2.5rem; }
+            .container { padding: 1.5rem; max-width: 90%; }
+            .btn { padding: 0.8rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ShadowSpy Tools</h1>
+    </div>
+    <div class="container">
+        <div id="login-form" style="display: block;">
+            <h2>Login to Access Tools</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" name="login" class="btn btn-primary">🔑 Login</button>
+                <button type="button" onclick="toggleForms()" class="btn btn-secondary">Don't have an account? Signup</button>
+            </form>
+        </div>
+
+        <div id="signup-form" style="display: none;">
+            <h2>Create Your Account</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" name="signup" class="btn btn-primary">🚀 Signup</button>
+                <button type="button" onclick="toggleForms()" class="btn btn-secondary">Already have an account? Login</button>
+            </form>
+        </div>
+
+                    </div>
+
+    <div class="footer">
+        <p class="developer">Developed by Shadow Innovations</p>
+        <a href="https://whatsapp.com/channel/0029ValH0yv6GcG8pM6AN432" class="whatsapp-btn" target="_blank">📢 Join Our WhatsApp Channel</a>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+            signupForm.style.display = signupForm.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
